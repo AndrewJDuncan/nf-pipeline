@@ -5,8 +5,6 @@ set -euo pipefail
 REFERENCE_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/references"
 THREADS=16
 SCRUBBY_INDEX="${REFERENCE_DIR}/controls.fasta"
-NF_VERSION="3.19.0"
-NF_PROFILE="conda"
 OUTDIR="nextflow_output"
 GENOME="GRCh37"
 SCRUBBY_DIR="scrubby_clean"
@@ -54,12 +52,11 @@ for r1 in ${SCRUBBY_DIR}/*__clean__R1.fq.gz; do
     echo "${sample},${r1},${r2},auto" >> samples.csv
 done
 
-# ===== Run nf-core/rnaseq Pipeline =====
-echo "[Nextflow] Running nf-core/rnaseq"
+# ===== Run nf-core/rnaseq Pipeline (with profile=conda) =====
+echo "[Nextflow] Running nf-core/rnaseq with --profile conda"
 
 nextflow run nf-core/rnaseq \
-    -r "$NF_VERSION" \
-    -profile "$NF_PROFILE" \
+    -profile conda \
     --input samples.csv \
     --outdir "$OUTDIR" \
     --genome "$GENOME" \
