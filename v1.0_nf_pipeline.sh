@@ -1,19 +1,75 @@
-## Nextflow rna-seq pipeline 
-# Due to low host RNA biomass, uses Eike's <scrubby> to deplete ERCC / EDCC (high % of data from synthetic controls)
+#!/bin/bash
+set -euo pipefail
 
-# 1. Define directories
-  REFERENCE_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/rna_pipeline/references"
-  THREADS=32
+# ===== Configuration =====
+REFERENCE_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/references"
+THREADS=16
+SCRUBBY_INDEX="${REFERENCE_DIR}/controls.fasta"
+NF_VERSION="3.19.0"
+NF_PROFILE="conda"
+OUTDIR="nextflow_output"
+GENOME="GRCh37"
+SCRUBBY_DIR="scrubby_clean"
 
-# 2. Activate environment
-  mamba activate nextflow25
+# ===== Activate Environment =====
+source ~/miniforge3/etc/profile.d/conda.sh
+mamba activate nextflow25
 
-# 3. deplete synthetic controls with scrubby
-scrubby reads -i $forward -i $reverse --index controls.fasta --aligner minimap2 --threads 16 -o ${sampleID}__clean__R1.fq.gz -o ${sampleID}__clean__R2.fq.gz --json ${sampleID}.clean.json
+# ===== ERCC/EDCC depletion =====
+echo "[Scrubby] Depleting synthetic controls using Scrubby"
+mkdir -p "$SCRUBBY_DIR"
 
-# Create the sample file for all samples marked as "S"
-  echo "sample,fastq_1,fastq_2,strandedness" > samples.csv
-  for f in *RNA__S_*R1_001.fastq.gz; do name=$(basename $f _R1_001.fastq.gz); echo "${name},${name}_R1_001.fastq.gz,${name}_R2_001.fastq.gz,auto" >> samples.csv; done
+for r1 in *RNA__S_*R1_001.fastq.gz; do
+    sample=$(basename "$r1" _R1_001.fastq.gz)
+    r2="${sample}_R2_001.fastq.gz"
 
-# Run the pipeline with UMI tools and skipping failing Deseq2 scripts:
-  nextflow run -r 3.19.0 nf-core/rnaseq -profile conda --input samples.csv --outdir test --genome GRCh37 --with_umi --umitools_umi_separator ":" --skip_umi_extract --skip_deseq2_qc
+    # Skip if R2 not found
+    if [[ ! -f "$r2" ]]; then
+        echo "  Skipping $sample: $r2 not found"
+        continue
+    fi
+
+    echo "  Processing $sample"
+
+    scrubby reads \
+        -i "$r1" -i "$r2" \
+        --index "$SCRUBBY_INDEX" \
+        --aligner minimap2 \
+        --threads "$THREADS" \
+        -o "${SCRUBBY_DIR}/${sample}__clean__R1.fq.gz" \
+        -o "${SCRUBBY_DIR}/${sample}__clean__R2.fq.gz" \
+        --json "${SCRUBBY_DIR}/${sample}.clean.json"
+done
+
+# ===== Generate nf-core/rnaseq Samplesheet =====
+echo "[Nextflow] Generating CSV samplesheet"
+echo "sample,fastq_1,fastq_2,strandedness" > samples.csv
+
+for r1 in ${SCRUBBY_DIR}/*__clean__R1.fq.gz; do
+    sample=$(basename "$r1" __clean__R1.fq.gz)
+    r2="${SCRUBBY_DIR}/${sample}__clean__R2.fq.gz"
+
+    # Confirm R2 exists
+    if [[ ! -f "$r2" ]]; then
+        echo "  Skipping $sample in samplesheet: R2 missing"
+        continue
+    fi
+
+    echo "${sample},${r1},${r2},auto" >> samples.csv
+done
+
+# ===== Run nf-core/rnaseq Pipeline =====
+echo "[Nextflow] Running nf-core/rnaseq"
+
+nextflow run nf-core/rnaseq \
+    -r "$NF_VERSION" \
+    -profile "$NF_PROFILE" \
+    --input samples.csv \
+    --outdir "$OUTDIR" \
+    --genome "$GENOME" \
+    --with_umi \
+    --umitools_umi_separator ":" \
+    --skip_umi_extract \
+    --skip_deseq2_qc
+
+echo "[Done] Results in $OUTDIR"
