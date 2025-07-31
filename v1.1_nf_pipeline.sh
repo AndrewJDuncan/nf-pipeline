@@ -24,7 +24,7 @@ echo "[Step 1] Running Scrubby to remove synthetic controls"
 # Activate mamba environment for Scrubby
 echo "  Activating $SCRUBBY_ENV"
 source ~/miniforge3/etc/profile.d/conda.sh
-mamba activate "$SCRUBBY_ENV"
+conda activate "$SCRUBBY_ENV"
 
 for r1 in "${IN_DIR}"/*RNA__S_*R1_001.fastq.gz; do
     sample=$(basename "$r1" _R1_001.fastq.gz)
