@@ -5,13 +5,14 @@ set -euo pipefail
 REFERENCE_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/references"
 THREADS=16
 SCRUBBY_INDEX="${REFERENCE_DIR}/controls.fasta"
-OUTDIR="nextflow_output"
+INDIR="~/projects/nf-pipeline/validation_plate"
 GENOME="GRCh37"
 SCRUBBY_DIR="scrubby_clean"
 
 # ===== ERCC/EDCC depletion =====
 echo "[Scrubby] Depleting synthetic controls using Scrubby"
 mkdir -p "$SCRUBBY_DIR"
+mamba activate rna-tools
 
 for r1 in *RNA__S_*R1_001.fastq.gz; do
     sample=$(basename "$r1" _R1_001.fastq.gz)
