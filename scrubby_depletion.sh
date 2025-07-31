@@ -12,6 +12,9 @@ SCRUBBY_DIR="scrubby_clean"
 # ===== ERCC/EDCC depletion =====
 echo "[Scrubby] Depleting synthetic controls using Scrubby"
 mkdir -p "$SCRUBBY_DIR"
+
+#activate env
+source ~/miniforge3/etc/profile.d/conda.sh
 mamba activate rna-tools
 
 for r1 in *RNA__S_*R1_001.fastq.gz; do
