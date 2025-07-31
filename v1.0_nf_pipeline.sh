@@ -13,7 +13,7 @@ SCRUBBY_DIR="scrubby_clean"
 
 # ===== Activate Environment =====
 source ~/miniforge3/etc/profile.d/conda.sh
-mamba activate nextflow25
+conda activate nextflow25
 
 # ===== ERCC/EDCC depletion =====
 echo "[Scrubby] Depleting synthetic controls using Scrubby"
