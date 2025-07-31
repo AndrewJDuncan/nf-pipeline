@@ -5,13 +5,16 @@
 set -euo pipefail
 
 # ===== Config =====
+IN_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/rawdata"
+REFERENCE_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/references"
+SCRUBBY_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/scrubby_clean"
+OUTDIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/nextflow_output"
 REFERENCE_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/references"
 THREADS=16
 SCRUBBY_INDEX="${REFERENCE_DIR}/controls.fasta"
-SCRUBBY_DIR="scrubby_clean"
-OUTDIR="nextflow_output"
 GENOME="GRCh37"
 SCRUBBY_ENV="rna-tools"
+
 
 # ===== Step 1: Run Scrubby in mamba env =====
 echo "[Step 1] Running Scrubby to remove synthetic controls"
@@ -22,7 +25,7 @@ echo "  Activating $SCRUBBY_ENV"
 source ~/miniforge3/etc/profile.d/conda.sh
 mamba activate "$SCRUBBY_ENV"
 
-for r1 in *RNA__S_*R1_001.fastq.gz; do
+for r1 in "${IN_DIR}"/*RNA__S_*R1_001.fastq.gz; do
     sample=$(basename "$r1" _R1_001.fastq.gz)
     r2="${sample}_R2_001.fastq.gz"
 
