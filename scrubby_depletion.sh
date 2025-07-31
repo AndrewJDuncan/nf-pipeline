@@ -1,6 +1,10 @@
 #!/bin/bash
 set -euo pipefail
 
+# ===== Activate Environment =====
+source ~/miniforge3/etc/profile.d/conda.sh
+mamba activate nextflow25
+
 # ===== Configuration =====
 REFERENCE_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/references"
 THREADS=16
