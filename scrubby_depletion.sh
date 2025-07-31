@@ -13,9 +13,6 @@ SCRUBBY_DIR="scrubby_clean"
 echo "[Scrubby] Depleting synthetic controls using Scrubby"
 mkdir -p "$SCRUBBY_DIR"
 
-#activate env
-source ~/miniforge3/etc/profile.d/conda.sh
-conda activate rna-tools
 
 for r1 in *RNA__S_*R1_001.fastq.gz; do
     sample=$(basename "$r1" _R1_001.fastq.gz)
