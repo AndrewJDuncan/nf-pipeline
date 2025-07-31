@@ -1,5 +1,6 @@
 # Uses initial scrubby-based ERCC/EDCC cleaning, inside mamba environment, then turns this environment off and runs nf-core nextflow pipeline. 
   ## Skips deseq2_qc - bug
+  ## must 
 
 #!/bin/bash
 set -euo pipefail
@@ -7,48 +8,32 @@ set -euo pipefail
 # ===== Config =====
 IN_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/validation_plate"
 REFERENCE_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/references"
-SCRUBBY_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/scrubby_clean"
-OUTDIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/nextflow_output"
+SCRUBBY_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/validation_plate/scrubby_clean"
+OUTDIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/validation_plate/nextflow_output"
 REFERENCE_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/references"
 THREADS=16
 SCRUBBY_INDEX="${REFERENCE_DIR}/controls.fasta"
 GENOME="GRCh37"
-SCRUBBY_ENV="rna-tools"
 
 mkdir -p "$SCRUBBY_DIR"
 mkdir -p "$OUTDIR"
 
+echo "Pipeline initialising"
+
 # ===== Step 1: Run Scrubby in mamba env =====
 echo "[Step 1] Running Scrubby to remove synthetic controls"
+  # activate env
+    mamba activate rna-tools
 
-# Activate mamba environment for Scrubby
-echo "  Activating $SCRUBBY_ENV"
-source ~/miniforge3/etc/profile.d/conda.sh
-conda activate "$SCRUBBY_ENV"
+  # move copy of scrubby script to target directory --> run --> remove it again
+    cp ~/projects/nf-pipeline/scripts/scrubby_depletion.sh $INDIR
+    cd $INDIR
+    ./scrubby_depletion.sh
+    rm scrubby_depletion.sh
 
-for r1 in "${IN_DIR}"/*RNA__S_*R1_001.fastq.gz; do
-    sample=$(basename "$r1" _R1_001.fastq.gz)
-    r2="${sample}_R2_001.fastq.gz"
+  # deactivate env
+    mamba deactivate
 
-    if [[ ! -f "$r2" ]]; then
-        echo "  Skipping $sample: $r2 not found"
-        continue
-    fi
-
-    echo "  Scrubbing $sample"
-    scrubby reads \
-        -i "$r1" -i "$r2" \
-        --index "$SCRUBBY_INDEX" \
-        --aligner minimap2 \
-        --threads "$THREADS" \
-        -o "${SCRUBBY_DIR}/${sample}__clean__R1.fq.gz" \
-        -o "${SCRUBBY_DIR}/${sample}__clean__R2.fq.gz" \
-        --json "${SCRUBBY_DIR}/${sample}.clean.json"
-done
-
-# Deactivate env
-echo "  Deactivating Scrubby env"
-mamba deactivate
 
 # ===== Step 2: Create samplesheet =====
 echo "[Step 2] Creating nf-core/rnaseq samplesheet"
