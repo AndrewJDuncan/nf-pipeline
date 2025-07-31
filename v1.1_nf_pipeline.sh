@@ -5,7 +5,7 @@
 set -euo pipefail
 
 # ===== Config =====
-IN_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/rawdata"
+IN_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/validation_plate"
 REFERENCE_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/references"
 SCRUBBY_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/scrubby_clean"
 OUTDIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/nextflow_output"
@@ -15,10 +15,11 @@ SCRUBBY_INDEX="${REFERENCE_DIR}/controls.fasta"
 GENOME="GRCh37"
 SCRUBBY_ENV="rna-tools"
 
+mkdir -p "$SCRUBBY_DIR"
+mkdir -p "$OUTDIR"
 
 # ===== Step 1: Run Scrubby in mamba env =====
 echo "[Step 1] Running Scrubby to remove synthetic controls"
-mkdir -p "$SCRUBBY_DIR"
 
 # Activate mamba environment for Scrubby
 echo "  Activating $SCRUBBY_ENV"
