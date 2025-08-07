@@ -1,0 +1,9 @@
+## Gitignore for nf-core pipelines ##
+.nextflow/*
+nextflow*
+pipeline_output/*
+references/*
+run_samplesheets/*
+samples.csv
+validation_plate/*
+work/*
