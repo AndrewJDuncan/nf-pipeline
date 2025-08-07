@@ -43,12 +43,12 @@ echo "Running nf-core/scrnaseq with --profile test"
 SAMPLESHEET="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/samples.csv"
 
 nextflow run nf-core/scrnaseq \
-    --input "$SAMPLESHEET" \
-    --outdir "$OUTDIR" \
-    --aligner star \
-    --genome "$GENOME" \
-    --monochromeLogs true \
-    -profile conda
+  --input "$SAMPLESHEET" \
+  --outdir "$OUTDIR" \
+  --aligner star \
+  --genome "$GENOME" \
+  --protocol smartseq2 \
+  -profile conda
     
     
 mv /raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/samples.csv /raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/run_samplesheets/
