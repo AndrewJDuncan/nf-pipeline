@@ -23,7 +23,7 @@ echo "Pipeline initialising"
 
 # ===== Create samplesheet =====
 echo "Creating nf-core/rnaseq samplesheet"
-echo "sample,fastq_1,fastq_2,strandedness" > samples.csv
+echo "sample,fastq_1,fastq_2" > samples.csv
 
 for r1 in ${SCRUBBY_DIR}/*__clean__R1.fq.gz; do
     sample=$(basename "$r1" __clean__R1.fq.gz)
@@ -34,7 +34,7 @@ for r1 in ${SCRUBBY_DIR}/*__clean__R1.fq.gz; do
         continue
     fi
 
-    echo "${sample},${r1},${r2},auto" >> samples.csv
+    echo "${sample},${r1},${r2}" >> samples.csv
 done
 
 # ===== Run nf-core/scrnaseq pipeline with conda profile =====
@@ -47,7 +47,9 @@ nextflow run nf-core/scrnaseq \
     --outdir "$OUTDIR" \
     --aligner star \
     --genome "$GENOME" \
+    --monochromeLogs true \
     -profile conda
+    
     
 mv /raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/samples.csv /raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/run_samplesheets/
 
