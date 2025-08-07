@@ -39,8 +39,10 @@ done
 
 # ===== Run nf-core/scrnaseq pipeline with conda profile =====
 echo "Running nf-core/scrnaseq with --profile test"
+SAMPLESHEET="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/validation_plate/scrubby_clean/samples.csv"
+
 nextflow run nf-core/scrnaseq \
-    --input samples.csv \
+    --input "$SAMPLESHEET" \
     --outdir "$OUTDIR" \
     --aligner STAR \
     --genome "$GENOME" \
