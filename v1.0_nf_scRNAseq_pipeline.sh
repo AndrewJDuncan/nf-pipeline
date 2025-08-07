@@ -47,7 +47,7 @@ nextflow run nf-core/scrnaseq \
     --outdir "$OUTDIR" \
     --aligner star \
     --genome "$GENOME" \
-    -profile test
+    -profile conda
     
 mv /raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/samples.csv /raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/run_samplesheets/
 
