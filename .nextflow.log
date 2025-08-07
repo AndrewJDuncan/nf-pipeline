@@ -1,51 +1,265 @@
-July-29 15:57:20.467 [main] DEBUG nextflow.cli.Launcher - $> nextflow run .
-July-29 15:57:20.562 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.6
-July-29 15:57:20.588 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/raid/VIDRL-USERS/HOME/aduncan/.nextflow/plugins; core-plugins: nf-amazon@2.15.0,nf-azure@1.16.0,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.0,nf-tower@1.11.4,nf-wave@1.12.1
-July-29 15:57:20.619 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-July-29 15:57:20.620 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-July-29 15:57:20.623 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-July-29 15:57:20.635 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-July-29 15:57:21.078 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /raid/VIDRL-USERS/HOME/aduncan/projects/v3_rna_preproc/nextflow.config
-July-29 15:57:21.085 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /raid/VIDRL-USERS/HOME/aduncan/projects/v3_rna_preproc/nextflow.config
-July-29 15:57:21.107 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/secrets/store.json
-July-29 15:57:21.111 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@1f9f381d] - activable => nextflow.secret.LocalSecretsProvider@1f9f381d
-July-29 15:57:21.116 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
-July-29 15:57:21.188 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
-July-29 15:57:21.202 [main] DEBUG nextflow.cli.CmdRun - Launching `./main.nf` [tender_faggin] DSL2 - revision: d9ba039f0e
-July-29 15:57:21.203 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-July-29 15:57:21.203 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
-July-29 15:57:21.252 [main] DEBUG nextflow.Session - Session UUID: 82d5406c-c358-4655-bf92-ec2bfd002db6
-July-29 15:57:21.253 [main] DEBUG nextflow.Session - Run name: tender_faggin
-July-29 15:57:21.253 [main] DEBUG nextflow.Session - Executor pool size: 256
-July-29 15:57:21.261 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-July-29 15:57:21.267 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=768; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-July-29 15:57:21.295 [main] DEBUG nextflow.cli.CmdRun - 
+Aug-07 15:51:34.819 [main] DEBUG nextflow.cli.Launcher - $> nextflow run nf-core/scrnaseq --input /raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/samples.csv --outdir /raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/pipeline_output/scRNAseq_nf_output --aligner STAR --genome GRCh37 -profile test
+Aug-07 15:51:34.927 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.6
+Aug-07 15:51:34.952 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/raid/VIDRL-USERS/HOME/aduncan/.nextflow/plugins; core-plugins: nf-amazon@2.15.0,nf-azure@1.16.0,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.0,nf-tower@1.11.4,nf-wave@1.12.1
+Aug-07 15:51:34.981 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Aug-07 15:51:34.982 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Aug-07 15:51:34.984 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Aug-07 15:51:34.995 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Aug-07 15:51:35.008 [main] DEBUG nextflow.scm.ProviderConfig - Using SCM config path: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/scm
+Aug-07 15:51:35.898 [main] DEBUG nextflow.scm.AssetManager - Git config: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/.git/config; branch: master; remote: origin; url: https://github.com/nf-core/scrnaseq.git
+Aug-07 15:51:35.928 [main] DEBUG nextflow.scm.RepositoryFactory - Found Git repository result: [RepositoryFactory]
+Aug-07 15:51:35.938 [main] DEBUG nextflow.scm.AssetManager - Git config: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/.git/config; branch: master; remote: origin; url: https://github.com/nf-core/scrnaseq.git
+Aug-07 15:51:36.968 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/nextflow.config
+Aug-07 15:51:36.969 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/nextflow.config
+Aug-07 15:51:36.970 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/nextflow.config
+Aug-07 15:51:36.971 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/nextflow.config
+Aug-07 15:51:36.979 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/secrets/store.json
+Aug-07 15:51:36.982 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@4665428b] - activable => nextflow.secret.LocalSecretsProvider@4665428b
+Aug-07 15:51:36.992 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `test`
+Aug-07 15:51:38.662 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `test`
+Aug-07 15:51:38.684 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [bih, cfc_dev, uzl_omics, ifb_core, embl_hd, denbi_qbic, alice, mjolnir_globe, uppmax, giga, incliva, ilifu, ki_luria, uge, icr_alma, rosalind_uge, lugh, mccleary, unibe_ibu, vai, czbiohub_aws, jax, roslin, tes, scw, unc_longleaf, tigem, tubingen_apg, google, apollo, ipop_up, vsc_calcua, test_cellrangermulti, pdc_kth, googlels, ceci_nic5, ccga_cau, humantechnopole, stjude, daisybio, eddie, medair, biowulf, apptainer, bi, bigpurple, adcra, cedars, pawsey_setonix, vsc_kul_uhasselt, pawsey_nimbus, ucl_myriad, utd_ganymede, charliecloud, fred_hutch, seattlechildrens, icr_davros, ceres, arm, munin, rosalind, hasta, cfc, uzh, shu_bmrc, ebi_codon_slurm, ebc, ccga_dx, crick, ku_sund_danhead, marvin, shifter, biohpc_gen, mana, mamba, york_viking, unc_lccc, wehi, awsbatch, wustl_htcf, arcc, ceci_dragon2, imperial, maestro, software_license, cannon, genotoul, nci_gadi, abims, eva_grace, janelia, nu_genomics, googlebatch, oist, sahmri, kaust, alliance_canada, mpcdf, leicester, vsc_ugent, create, sage, cambridge, jex, podman, ebi_codon, cheaha, xanadu, nyu_hpc, test, marjorie, computerome, ucd_sonic, gpu, test_multiome, seg_globe, mssm, sanger, dkfz, bluebear, pasteur, einstein, ethz_euler, m3c, test_full, imb, ucl_cscluster, tuos_stanage, azurebatch, hki, seadragon, crukmi, csiro_petrichor, qmul_apocrita, wave, docker, engaging, gis, hypatia, psmn, eva, unity, cropdiversityhpc, nygc, fgcz, conda, crg, singularity, mpcdf_viper, pe2, self_hosted_runner, tufts, uw_hyak_pedslabs, binac2, debug, genouest, cbe, unsw_katana, utd_juno, gitpod, phoenix, seawulf, uod_hpc, fub_curta, uct_hpc, aws_tower, binac, fsu_draco]
+Aug-07 15:51:38.719 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from config declaration
+Aug-07 15:51:38.719 [main] DEBUG nextflow.cli.CmdRun - Launching `https://github.com/nf-core/scrnaseq` [distracted_bell] DSL2 - revision: e0ddddbff9 [master]
+Aug-07 15:51:38.720 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins declared=[nf-schema@2.3.0]
+Aug-07 15:51:38.721 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Aug-07 15:51:38.721 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[nf-schema@2.3.0]
+Aug-07 15:51:38.723 [main] DEBUG nextflow.plugin.PluginUpdater - Installing plugin nf-schema version: 2.3.0
+Aug-07 15:51:38.755 [main] INFO  org.pf4j.AbstractPluginManager - Plugin 'nf-schema@2.3.0' resolved
+Aug-07 15:51:38.756 [main] INFO  org.pf4j.AbstractPluginManager - Start plugin 'nf-schema@2.3.0'
+Aug-07 15:51:38.764 [main] DEBUG nextflow.plugin.BasePlugin - Plugin started nf-schema@2.3.0
+Aug-07 15:51:38.852 [main] DEBUG nextflow.Session - Session UUID: f0c2f586-70ff-4a0e-972e-e04d467e7798
+Aug-07 15:51:38.853 [main] DEBUG nextflow.Session - Run name: distracted_bell
+Aug-07 15:51:38.853 [main] DEBUG nextflow.Session - Executor pool size: 256
+Aug-07 15:51:38.860 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Aug-07 15:51:38.864 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=768; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Aug-07 15:51:38.882 [main] DEBUG nextflow.cli.CmdRun - 
   Version: 25.04.6 build 5954
   Created: 01-07-2025 11:27 UTC (21:27 AEDT)
   System: Linux 5.15.0-1066-nvidia
   Runtime: Groovy 4.0.26 on OpenJDK 64-Bit Server VM 23.0.2-internal-adhoc.conda.src
   Encoding: UTF-8 (UTF-8)
-  Process: 394454@dgx-a100 [127.0.1.1]
-  CPUs: 256 - Mem: 2 TB (711.9 GB) - Swap: 0 (0)
-July-29 15:57:21.328 [main] DEBUG nextflow.Session - Work-dir: /raid/VIDRL-USERS/HOME/aduncan/projects/v3_rna_preproc/work [ext2/ext3]
-July-29 15:57:21.329 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /raid/VIDRL-USERS/HOME/aduncan/projects/v3_rna_preproc/bin
-July-29 15:57:21.339 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-July-29 15:57:21.348 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
-July-29 15:57:21.353 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
-July-29 15:57:21.376 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-July-29 15:57:21.384 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 257; maxThreads: 1000
-July-29 15:57:21.439 [main] DEBUG nextflow.Session - Session start
-July-29 15:57:21.560 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-July-29 15:57:21.585 [main] INFO  nextflow.script.BaseScript - Nextflow working
-July-29 15:57:21.588 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: 
-July-29 15:57:21.590 [main] DEBUG nextflow.Session - Igniting dataflow network (0)
-July-29 15:57:21.590 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
-  Script_9cf0d9b0625305b5: /raid/VIDRL-USERS/HOME/aduncan/projects/v3_rna_preproc/main.nf
-July-29 15:57:21.590 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
-July-29 15:57:21.590 [main] DEBUG nextflow.Session - Session await
-July-29 15:57:21.590 [main] DEBUG nextflow.Session - Session await > all processes finished
-July-29 15:57:21.590 [main] DEBUG nextflow.Session - Session await > all barriers passed
-July-29 15:57:21.598 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=0; peakCpus=0; peakMemory=0; ]
-July-29 15:57:21.673 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
-July-29 15:57:21.694 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
-July-29 15:57:21.694 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
+  Process: 2745810@dgx-a100 [127.0.1.1]
+  CPUs: 256 - Mem: 2 TB (999.1 GB) - Swap: 0 (0)
+Aug-07 15:51:38.897 [main] DEBUG nextflow.Session - Work-dir: /raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/work [ext2/ext3]
+Aug-07 15:51:38.935 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Aug-07 15:51:38.946 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Aug-07 15:51:38.963 [main] DEBUG nextflow.Session - Observer factory: ValidationObserverFactory
+Aug-07 15:51:38.987 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Aug-07 15:51:39.022 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Aug-07 15:51:39.030 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 257; maxThreads: 1000
+Aug-07 15:51:39.090 [main] DEBUG nextflow.Session - Session start
+Aug-07 15:51:39.096 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/pipeline_output/scRNAseq_nf_output/pipeline_info/execution_trace_2025-08-07_15-51-37.txt
+Aug-07 15:51:39.114 [main] DEBUG nextflow.Session - Using default localLib path: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/lib
+Aug-07 15:51:39.116 [main] DEBUG nextflow.Session - Adding to the classpath library: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/lib
+Aug-07 15:51:39.258 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Aug-07 15:51:39.601 [main] DEBUG nextflow.script.IncludeDef - Loading included plugin extensions with names: [paramsSummaryLog:paramsSummaryLog]; plugin Id: nf-schema
+Aug-07 15:51:39.608 [main] DEBUG nextflow.script.IncludeDef - Loading included plugin extensions with names: [validateParameters:validateParameters]; plugin Id: nf-schema
+Aug-07 15:51:39.621 [main] DEBUG nextflow.script.IncludeDef - Loading included plugin extensions with names: [paramsSummaryMap:paramsSummaryMap]; plugin Id: nf-schema
+Aug-07 15:51:39.622 [main] DEBUG nextflow.script.IncludeDef - Loading included plugin extensions with names: [samplesheetToList:samplesheetToList]; plugin Id: nf-schema
+Aug-07 15:51:40.335 [main] DEBUG nextflow.script.IncludeDef - Loading included plugin extensions with names: [paramsSummaryMap:paramsSummaryMap]; plugin Id: nf-schema
+Aug-07 15:51:40.480 [main] DEBUG nextflow.script.IncludeDef - Loading included plugin extensions with names: [paramsSummaryLog:paramsSummaryLog]; plugin Id: nf-schema
+Aug-07 15:51:40.481 [main] DEBUG nextflow.script.IncludeDef - Loading included plugin extensions with names: [validateParameters:validateParameters]; plugin Id: nf-schema
+Aug-07 15:51:40.484 [main] DEBUG nextflow.script.IncludeDef - Loading included plugin extensions with names: [paramsSummaryMap:paramsSummaryMap]; plugin Id: nf-schema
+Aug-07 15:51:40.484 [main] DEBUG nextflow.script.IncludeDef - Loading included plugin extensions with names: [samplesheetToList:samplesheetToList]; plugin Id: nf-schema
+Aug-07 15:51:43.186 [main] INFO  nextflow.Nextflow - 
+-[2m----------------------------------------------------[0m-
+                                        [0;32m,--.[0;30m/[0;32m,-.[0m
+[0;34m        ___     __   __   __   ___     [0;32m/,-._.--~'[0m
+[0;34m  |\ | |__  __ /  ` /  \ |__) |__         [0;33m}  {[0m
+[0;34m  | \| |       \__, \__/ |  \ |___     [0;32m\`-._,-`-,[0m
+                                        [0;32m`._,._,'[0m
+[0;35m  nf-core/scrnaseq 4.0.0[0m
+-[2m----------------------------------------------------[0m-
+[1mInput/output options[0m
+  [0;34minput                     : [0;32m/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/samples.csv[0m
+  [0;34moutdir                    : [0;32m/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/pipeline_output/scRNAseq_nf_output[0m
+
+[1mMandatory arguments[0m
+  [0;34maligner                   : [0;32mSTAR[0m
+  [0;34mprotocol                  : [0;32m10XV2[0m
+
+[1mSkip Tools[0m
+  [0;34mskip_cellbender           : [0;32mtrue[0m
+
+[1mReference genome options[0m
+  [0;34mgenome                    : [0;32mGRCh37[0m
+  [0;34mfasta                     : [0;32mhttps://github.com/nf-core/test-datasets/raw/scrnaseq/reference/GRCm38.p6.genome.chr19.fa[0m
+  [0;34mgtf                       : [0;32mhttps://github.com/nf-core/test-datasets/raw/scrnaseq/reference/gencode.vM19.annotation.chr19.gtf[0m
+  [0;34msave_align_intermeds      : [0;32mtrue[0m
+
+[1mInstitutional config options[0m
+  [0;34mconfig_profile_name       : [0;32mTest profile[0m
+  [0;34mconfig_profile_description: [0;32mMinimal test dataset to check pipeline function[0m
+
+[1mGeneric options[0m
+  [0;34mtrace_report_suffix       : [0;32m2025-08-07_15-51-37[0m
+
+[1mCore Nextflow options[0m
+  [0;34mrevision                  : [0;32mmaster[0m
+  [0;34mrunName                   : [0;32mdistracted_bell[0m
+  [0;34mlaunchDir                 : [0;32m/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline[0m
+  [0;34mworkDir                   : [0;32m/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/work[0m
+  [0;34mprojectDir                : [0;32m/raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq[0m
+  [0;34muserName                  : [0;32maduncan[0m
+  [0;34mprofile                   : [0;32mtest[0m
+  [0;34mconfigFiles               : [0;32m/raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/nextflow.config, /raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/nextflow.config[0m
+
+!! Only displaying parameters that differ from the pipeline defaults !!
+-[2m----------------------------------------------------[0m-
+* The pipeline
+    https://doi.org/10.5281/zenodo.3568187
+
+* The nf-core framework
+    https://doi.org/10.1038/s41587-020-0439-x
+
+* Software dependencies
+    https://github.com/nf-core/scrnaseq/blob/master/CITATIONS.md
+
+Aug-07 15:51:43.188 [main] DEBUG n.validation.ValidationExtension - Starting parameters validation
+Aug-07 15:51:43.221 [main] WARN  n.validation.ValidationExtension - The following invalid input values have been detected:
+
+* --monochromeLogs: null
+* --validationSchemaIgnoreParams: genomes
+* --reads: rawdata/*_{R1,R2}_*.fastq.gz
+
+
+Aug-07 15:51:43.318 [main] DEBUG nextflow.validation.SchemaEvaluator - Started validating /raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/samples.csv
+Aug-07 15:51:43.407 [main] DEBUG nextflow.validation.SchemaEvaluator - Validation of file '/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/samples.csv' passed!
+Aug-07 15:51:43.808 [main] DEBUG n.file.http.XFileSystemProvider - Remote redirect location: https://raw.githubusercontent.com/nf-core/test-datasets/scrnaseq/reference/GRCm38.p6.genome.chr19.fa
+Aug-07 15:51:47.564 [main] DEBUG n.file.http.XFileSystemProvider - Remote redirect location: https://raw.githubusercontent.com/nf-core/test-datasets/scrnaseq/reference/GRCm38.p6.genome.chr19.fa
+Aug-07 15:51:47.605 [main] DEBUG n.file.http.XFileSystemProvider - Remote redirect location: https://raw.githubusercontent.com/nf-core/test-datasets/scrnaseq/reference/GRCm38.p6.genome.chr19.fa
+Aug-07 15:51:47.643 [main] DEBUG n.file.http.XFileSystemProvider - Remote redirect location: https://raw.githubusercontent.com/nf-core/test-datasets/scrnaseq/reference/GRCm38.p6.genome.chr19.fa
+Aug-07 15:51:47.968 [main] DEBUG n.file.http.XFileSystemProvider - Remote redirect location: https://raw.githubusercontent.com/nf-core/test-datasets/scrnaseq/reference/gencode.vM19.annotation.chr19.gtf
+Aug-07 15:51:49.502 [main] DEBUG n.file.http.XFileSystemProvider - Remote redirect location: https://raw.githubusercontent.com/nf-core/test-datasets/scrnaseq/reference/gencode.vM19.annotation.chr19.gtf
+Aug-07 15:51:49.541 [main] DEBUG n.file.http.XFileSystemProvider - Remote redirect location: https://raw.githubusercontent.com/nf-core/test-datasets/scrnaseq/reference/gencode.vM19.annotation.chr19.gtf
+Aug-07 15:51:49.587 [main] DEBUG n.file.http.XFileSystemProvider - Remote redirect location: https://raw.githubusercontent.com/nf-core/test-datasets/scrnaseq/reference/gencode.vM19.annotation.chr19.gtf
+Aug-07 15:51:49.607 [main] DEBUG n.v.FormatDirectoryPathEvaluator - Cloud blob storage paths are not supported by 'FormatDirectoryPathEvaluator': 's3://ngi-igenomes/igenomes/'
+Aug-07 15:51:49.611 [main] ERROR n.validation.ValidationExtension - Validation of pipeline parameters failed!
+Aug-07 15:51:49.621 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_116619ccb325236c: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/nf-core/cellranger/count/main.nf
+  Script_2cdf1dd129ca8d6b: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/subworkflows/local/kallisto_bustools.nf
+  Script_2422cb5c866a3f02: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/nf-core/cellranger/mkgtf/main.nf
+  Script_215a636da7ab24a2: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/subworkflows/nf-core/utils_nfschema_plugin/main.nf
+  Script_17ce930509503341: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/subworkflows/local/starsolo.nf
+  Script_a5e3a56fa0f5753f: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/subworkflows/local/align_cellrangerarc.nf
+  Script_5c4e8d4051efa81e: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/subworkflows/nf-core/utils_nfcore_pipeline/main.nf
+  Script_2ce2cea66f33b0c9: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/local/parse_cellrangermulti_samplesheet.nf
+  Script_01678c41b497280c: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/local/alevinqc.nf
+  Script_b6f2f5397ff1b307: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/local/gtf_gene_filter.nf
+  Script_0690c94ccbc80cf8: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/nf-core/anndata/barcodes/main.nf
+  Script_f484bb04f71d5cb3: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/nf-core/cellranger/multi/main.nf
+  Script_85014429899d4eed: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/nf-core/cellrangerarc/count/main.nf
+  Script_2b5dc2db40c0c7f1: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/subworkflows/local/simpleaf.nf
+  Script_0fdb2e5f8575be0c: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/nf-core/multiqc/main.nf
+  Script_9920ace3f63f7548: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/local/concat_h5ad.nf
+  Script_a242b7d3e1522c1a: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/subworkflows/local/align_cellranger.nf
+  Script_67f289d1fa44410a: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/nf-core/kallistobustools/count/main.nf
+  Script_c224a5d34be70db1: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/subworkflows/nf-core/h5ad_removebackground_barcodes_cellbender_anndata/main.nf
+  Script_0cb99b50b73564f3: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/nf-core/simpleaf/index/main.nf
+  Script_e6da1e6a0fbb4bd4: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/nf-core/simpleaf/quant/main.nf
+  Script_b8ef320e712f03dd: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/nf-core/cellrangerarc/mkgtf/main.nf
+  Script_4f612cfd8c52e8cd: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/subworkflows/nf-core/utils_nextflow_pipeline/main.nf
+  Script_c12f64b9d72aaf58: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/local/star_align.nf
+  Script_3c99494cecee2398: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/subworkflows/local/h5ad_conversion.nf
+  Script_8b4cd5023b0747bc: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/nf-core/star/genomegenerate/main.nf
+  Script_7db0c40b9e083db8: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/local/mtx_to_h5ad.nf
+  Script_e04fff270dc1ec83: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/main.nf
+  Script_7fc9d40ebc5611d3: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/nf-core/cellranger/mkref/main.nf
+  Script_bbcd84f7538bc350: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/subworkflows/local/utils_nfcore_scrnaseq_pipeline/main.nf
+  Script_f535f8fb412be0f3: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/workflows/scrnaseq.nf
+  Script_7d26d205472ec618: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/subworkflows/local/fastqc.nf
+  Script_a415462e1630ff87: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/nf-core/cellbender/removebackground/main.nf
+  Script_dc41886bdbd95b0b: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/nf-core/fastqc/main.nf
+  Script_b6e854e2f4a9b0b7: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/nf-core/kallistobustools/ref/main.nf
+  Script_ee6d5a1dfbefe9e1: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/nf-core/cellranger/mkvdjref/main.nf
+  Script_a6b84a8d8db37c9d: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/nf-core/gunzip/main.nf
+  Script_13d4ec1d4f43657c: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/local/anndatar_convert.nf
+  Script_fd9ffb2ce3d24fd1: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/modules/nf-core/cellrangerarc/mkref/main.nf
+  Script_cf189f8d1668d163: /raid/VIDRL-USERS/HOME/aduncan/.nextflow/assets/nf-core/scrnaseq/subworkflows/local/align_cellrangermulti.nf
+Aug-07 15:51:49.621 [main] DEBUG nextflow.Session - Session aborted -- Cause: [0;31mThe following invalid input values have been detected:
+
+* --aligner (STAR): Expected any of [[kallisto, star, simpleaf, cellranger, cellrangerarc, cellrangermulti]]
+[0m
+
+Aug-07 15:51:49.636 [main] DEBUG nextflow.cli.Launcher - Operation aborted
+nextflow.validation.SchemaValidationException: [0;31mThe following invalid input values have been detected:
+
+* --aligner (STAR): Expected any of [[kallisto, star, simpleaf, cellranger, cellrangerarc, cellrangermulti]]
+[0m
+
+	at nextflow.validation.ValidationExtension.validateParameters(ValidationExtension.groovy:322)
+	at nextflow.validation.ValidationExtension.validateParameters(ValidationExtension.groovy)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at nextflow.script.FunctionDef.invoke_a(FunctionDef.groovy:64)
+	at nextflow.script.ComponentDef.invoke_o(ComponentDef.groovy:40)
+	at nextflow.script.WorkflowBinding.invokeMethod(WorkflowBinding.groovy:105)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:651)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeOnDelegationObjects(ClosureMetaClass.java:392)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:331)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at Script_215a636da7ab24a2$_runScript_closure1$_closure2.doCall(Script_215a636da7ab24a2:39)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:280)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at groovy.lang.Closure.call(Closure.java:433)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at nextflow.script.WorkflowDef.run0(WorkflowDef.groovy:205)
+	at nextflow.script.WorkflowDef.run(WorkflowDef.groovy:189)
+	at nextflow.script.BindableDef.invoke_a(BindableDef.groovy:51)
+	at nextflow.script.ComponentDef.invoke_o(ComponentDef.groovy:40)
+	at nextflow.script.WorkflowBinding.invokeMethod(WorkflowBinding.groovy:105)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:651)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeOnDelegationObjects(ClosureMetaClass.java:392)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:331)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at Script_bbcd84f7538bc350$_runScript_closure3$_closure5.doCall(Script_bbcd84f7538bc350:53)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:280)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at groovy.lang.Closure.call(Closure.java:433)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at nextflow.script.WorkflowDef.run0(WorkflowDef.groovy:205)
+	at nextflow.script.WorkflowDef.run(WorkflowDef.groovy:189)
+	at nextflow.script.BindableDef.invoke_a(BindableDef.groovy:51)
+	at nextflow.script.ComponentDef.invoke_o(ComponentDef.groovy:40)
+	at nextflow.script.WorkflowBinding.invokeMethod(WorkflowBinding.groovy:105)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:651)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeOnDelegationObjects(ClosureMetaClass.java:392)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:331)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at Script_e04fff270dc1ec83$_runScript_closure2$_closure4.doCall(Script_e04fff270dc1ec83:76)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:280)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at groovy.lang.Closure.call(Closure.java:433)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at nextflow.script.WorkflowDef.run0(WorkflowDef.groovy:205)
+	at nextflow.script.WorkflowDef.run(WorkflowDef.groovy:189)
+	at nextflow.script.BindableDef.invoke_a(BindableDef.groovy:51)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.script.BaseScript.run0(BaseScript.groovy:182)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.script.BaseScript.run(BaseScript.groovy:193)
+	at nextflow.script.parser.v1.ScriptLoaderV1.runScript(ScriptLoaderV1.groovy:246)
+	at nextflow.script.parser.v1.ScriptLoaderV1.runScript(ScriptLoaderV1.groovy)
+	at nextflow.script.ScriptRunner.run(ScriptRunner.groovy:246)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:139)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:379)
+	at nextflow.cli.Launcher.run(Launcher.groovy:513)
+	at nextflow.cli.Launcher.main(Launcher.groovy:673)

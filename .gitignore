@@ -1,6 +1,6 @@
 ## Gitignore for nf-core pipelines ##
 .nextflow/*
-nextflow*
+.nextflow*
 pipeline_output/*
 references/*
 run_samplesheets/*
