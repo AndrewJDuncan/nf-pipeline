@@ -45,7 +45,7 @@ SAMPLESHEET="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/samples.csv"
 nextflow run nf-core/scrnaseq \
     --input "$SAMPLESHEET" \
     --outdir "$OUTDIR" \
-    --aligner salmon \
+    --aligner star \
     --genome "$GENOME" \
     -profile test
     
