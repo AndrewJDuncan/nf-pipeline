@@ -42,6 +42,7 @@ echo "Running nf-core/scrnaseq with --profile test"
 nextflow run nf-core/scrnaseq \
     --input samples.csv \
     --outdir "$OUTDIR" \
+    --aligner STAR \
     --genome "$GENOME" \
     -profile test
 
