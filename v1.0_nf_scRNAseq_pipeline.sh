@@ -49,6 +49,6 @@ nextflow run nf-core/scrnaseq \
     --genome "$GENOME" \
     -profile test
     
-mv /raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/samples.csv raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/run_samplesheets/
+mv /raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/samples.csv /raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/run_samplesheets/
 
 echo "[Done] Pipeline complete. Output in $OUTDIR"
