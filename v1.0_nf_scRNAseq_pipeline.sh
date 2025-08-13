@@ -2,7 +2,7 @@
 # trial of scRNAseq to compare pipeline outputs
 
 # initial scrubby-based ERCC/EDCC cleaning, run inside mamba rna-tools environment; scrubby shell must run from within sample fastq directory
-# then activeate nextflow25 environment, use scrubby output as input for nf-core scRNAseq pipeline. 
+# then activate nextflow25 environment, use scrubby output as input for nf-core scRNAseq pipeline. 
 
 #!/bin/bash
 set -euo pipefail
@@ -22,7 +22,7 @@ mkdir -p "$OUTDIR"
 echo "Pipeline initialising"
 
 # ===== Create samplesheet =====
-echo "Creating nf-core/rnaseq samplesheet"
+echo "Creating nf-core/scrnaseq samplesheet"
 echo "sample,fastq_1,fastq_2" > samples.csv
 
 for r1 in ${SCRUBBY_DIR}/*__clean__R1.fq.gz; do
@@ -38,17 +38,17 @@ for r1 in ${SCRUBBY_DIR}/*__clean__R1.fq.gz; do
 done
 
 # ===== Run nf-core/scrnaseq pipeline with conda profile =====
-echo "Running nf-core/scrnaseq with --profile test"
+echo "Running nf-core/scrnaseq with -profile test"
 
 SAMPLESHEET="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/samples.csv"
 
 nextflow run nf-core/scrnaseq \
   --input "$SAMPLESHEET" \
   --outdir "$OUTDIR" \
-  --aligner star \
+  --aligner simpleaf \
   --genome "$GENOME" \
   --protocol smartseq2 \
-  -profile conda
+  -profile test
     
     
 mv /raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/samples.csv /raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/run_samplesheets/
