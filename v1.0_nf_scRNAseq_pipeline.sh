@@ -47,7 +47,6 @@ nextflow run nf-core/scrnaseq \
   --outdir "$OUTDIR" \
   --aligner simpleaf \
   --genome "$GENOME" \
-  --protocol smartseq2 \
   -profile conda
     
     
