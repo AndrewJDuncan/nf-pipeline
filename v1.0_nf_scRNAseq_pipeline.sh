@@ -48,7 +48,7 @@ nextflow run nf-core/scrnaseq \
   --aligner simpleaf \
   --genome "$GENOME" \
   --protocol smartseq2 \
-  -profile test
+  -profile conda
     
     
 mv /raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/samples.csv /raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/run_samplesheets/
