@@ -51,7 +51,6 @@ nextflow run nf-core/rnaseq \
     --trimmer trimgalore \
     --extra_trimgalore_args "--quality 15 --length 20" \
     --pseudo_aligner salmon \
-    --aligner none \
     --skip_deseq2_qc
 
 echo "[Done] Pipeline complete. Output in $OUTDIR"
