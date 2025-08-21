@@ -46,11 +46,15 @@ nextflow run nf-core/rnaseq \
     --outdir "$OUTDIR" \
     --genome "$GENOME" \
     --with_umi \
-    --umitools_bc_pattern "^(?:[^:]*:){7}([ACGTN]+)" \
+    --umitools_bc_pattern NNNNNNNNNNNN \
+    --umitools_umi_separator ":" \
+    --umitools_umi_skip 7 \
     --remove_ribo_rna \
     --trimmer trimgalore \
     --extra_trimgalore_args "--quality 15 --length 20" \
     --pseudo_aligner salmon \
+    --min_trimmed_reads 1000 \
     --skip_deseq2_qc
+
 
 echo "[Done] Pipeline complete. Output in $OUTDIR"
