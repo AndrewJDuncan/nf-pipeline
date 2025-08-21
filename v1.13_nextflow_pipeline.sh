@@ -13,8 +13,6 @@ IN_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/validation_plate"
 REFERENCE_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/references"
 SCRUBBY_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/validation_plate/scrubby_clean"
 OUTDIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/validation_plate/nextflow_output"
-REFERENCE_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/references"
-THREADS=16
 SCRUBBY_INDEX="${REFERENCE_DIR}/controls.fasta"
 GENOME="GRCh37"
 
@@ -22,7 +20,6 @@ mkdir -p "$SCRUBBY_DIR"
 mkdir -p "$OUTDIR"
 
 echo "Pipeline initialising"
-
 
 # ===== Step 2: Create samplesheet =====
 echo "[Step 2] Creating nf-core/rnaseq samplesheet"
@@ -37,7 +34,8 @@ for r1 in ${SCRUBBY_DIR}/*__clean__R1.fq.gz; do
         continue
     fi
 
-    echo "${sample},${r1},${r2},auto" >> samples.csv
+    # Explicit strandedness (R1 forward)
+    echo "${sample},${r1},${r2},forward" >> samples.csv
 done
 
 # ===== Step 3: Run nf-core/rnaseq pipeline with conda profile =====
@@ -49,7 +47,11 @@ nextflow run nf-core/rnaseq \
     --genome "$GENOME" \
     --with_umi \
     --umitools_umi_separator ":" \
-    --skip_umi_extract \
+    --remove_ribo_rna \
+    --trimmer trimgalore \
+    --extra_trimgalore_args "--quality 15 --length 20" \
+    --pseudo_aligner salmon \
+    --aligner none \
     --skip_deseq2_qc
 
 echo "[Done] Pipeline complete. Output in $OUTDIR"
