@@ -46,7 +46,7 @@ nextflow run nf-core/rnaseq \
     --outdir "$OUTDIR" \
     --genome "$GENOME" \
     --with_umi \
-    --umitools_umi_separator ":" \
+    --umitools_bc_pattern "^(?:[^:]*:){7}([ACGTN]+)" \
     --remove_ribo_rna \
     --trimmer trimgalore \
     --extra_trimgalore_args "--quality 15 --length 20" \
