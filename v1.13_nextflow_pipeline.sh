@@ -46,17 +46,29 @@ nextflow run nf-core/rnaseq \
     --outdir "$OUTDIR" \
     --genome "$GENOME" \
     --with_umi \
-    --umitools_bc_pattern NNNNNNNNNNNN \
+    --skip_umi_extract \
     --umitools_umi_separator ":" \
-    --umitools_umi_skip 7 \
     --remove_ribo_rna \
     --trimmer trimgalore \
     --extra_trimgalore_args "--quality 15 --length 20" \
-    --pseudo_aligner salmon \
-    --min_trimmed_reads 1000 \
+    --min_trimmed_reads 3000 \
+    --min_mapped_reads 1 \
     --skip_deseq2_qc \
     --skip_dupradar \
-    --skip_preseq
+    --skip_preseq \
+    --save_trimmed \
+    --save_non_ribo_reads \
+    --save_unaligned \
+    --save_umi_intermeds \
+    -with-report "$OUTDIR/pipeline_report.html" \
+    -with-trace "$OUTDIR/pipeline_trace.txt" \
+    -with-timeline "$OUTDIR/pipeline_timeline.html" \
+    -with-dag "$OUTDIR/pipeline_flowchart.dot"
+
+echo "[Done] Pipeline complete. Output in $OUTDIR"
+  
+# NOTE: no --pseudo_aligner salmon here (STAR+Salmon already happens with the default --aligner star_salmon)
+
 
 
 echo "[Done] Pipeline complete. Output in $OUTDIR"
