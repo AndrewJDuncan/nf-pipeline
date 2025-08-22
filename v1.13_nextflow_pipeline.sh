@@ -54,7 +54,7 @@ nextflow run nf-core/rnaseq \
     --extra_trimgalore_args "--quality 15 --length 20" \
     --pseudo_aligner salmon \
     --min_trimmed_reads 1000 \
-    --skip_deseq2_qc
+    --skip_deseq2_qc \
     --skip_dupradar \
     --skip_preseq
 
