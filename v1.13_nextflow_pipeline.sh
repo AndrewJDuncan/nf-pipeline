@@ -55,6 +55,8 @@ nextflow run nf-core/rnaseq \
     --pseudo_aligner salmon \
     --min_trimmed_reads 1000 \
     --skip_deseq2_qc
+    --skip_dupradar \
+    --skip_preseq
 
 
 echo "[Done] Pipeline complete. Output in $OUTDIR"
