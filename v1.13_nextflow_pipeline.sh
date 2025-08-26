@@ -1,10 +1,3 @@
-# v1.13 - take working v1.12 and reduce stringency to reduce dropout from csf data
-
-# assumes initial scrubby-based ERCC/EDCC cleaning, inside mamba rna-tools environment. Then turn this environment off and run pipeline from mamba nextflow25 environment. 
-  ## Skips deseq2_qc - bug
-  ## specifies strandedness to reduce misattributed strandedness and nonalignment
-  ## ensures --with_umi enabled
-
 #!/bin/bash
 set -euo pipefail
 
@@ -15,6 +8,7 @@ SCRUBBY_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/validation_plat
 OUTDIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/validation_plate/nextflow_output"
 SCRUBBY_INDEX="${REFERENCE_DIR}/controls.fasta"
 GENOME="GRCh37"
+STRANDEDNESS="forward"   # options: forward | reverse | unstranded
 
 mkdir -p "$SCRUBBY_DIR"
 mkdir -p "$OUTDIR"
@@ -23,7 +17,9 @@ echo "Pipeline initialising"
 
 # ===== Step 2: Create samplesheet =====
 echo "[Step 2] Creating nf-core/rnaseq samplesheet"
-echo "sample,fastq_1,fastq_2,strandedness" > samples.csv
+SAMPLESHEET="${OUTDIR}/samples.csv"
+
+echo "sample,fastq_1,fastq_2,strandedness" > "$SAMPLESHEET"
 
 for r1 in ${SCRUBBY_DIR}/*__clean__R1.fq.gz; do
     sample=$(basename "$r1" __clean__R1.fq.gz)
@@ -34,15 +30,15 @@ for r1 in ${SCRUBBY_DIR}/*__clean__R1.fq.gz; do
         continue
     fi
 
-    # Explicit strandedness (R1 forward)
-    echo "${sample},${r1},${r2},forward" >> samples.csv
+    echo "${sample},${r1},${r2},${STRANDEDNESS}" >> "$SAMPLESHEET"
 done
 
-# ===== Step 3: Run nf-core/rnaseq pipeline with conda profile =====
-echo "[Step 3] Running nf-core/rnaseq with --profile conda"
+# ===== Step 3: Run nf-core/rnaseq pipeline =====
+echo "[Step 3] Running nf-core/rnaseq"
+
 nextflow run nf-core/rnaseq \
-    -profile test \
-    --input samples.csv \
+    -profile conda \
+    --input "$SAMPLESHEET" \
     --outdir "$OUTDIR" \
     --genome "$GENOME" \
     --with_umi \
@@ -65,10 +61,5 @@ nextflow run nf-core/rnaseq \
     -with-trace "$OUTDIR/pipeline_trace.txt" \
     -with-timeline "$OUTDIR/pipeline_timeline.html" \
     -with-dag "$OUTDIR/pipeline_flowchart.dot"
-
-echo "[Done] Pipeline complete. Output in $OUTDIR"
-  
-# NOTE: no --pseudo_aligner salmon here (STAR+Salmon already happens with the default --aligner star_salmon)
-
 
 echo "[Done] Pipeline complete. Output in $OUTDIR"
