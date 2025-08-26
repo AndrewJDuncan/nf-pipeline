@@ -53,6 +53,7 @@ nextflow run nf-core/rnaseq \
     --extra_trimgalore_args "--quality 15 --length 20" \
     --min_trimmed_reads 3000 \
     --min_mapped_reads 1 \
+    --skip_fastqc_strandedness \
     --skip_deseq2_qc \
     --skip_dupradar \
     --skip_preseq \
@@ -68,7 +69,6 @@ nextflow run nf-core/rnaseq \
 echo "[Done] Pipeline complete. Output in $OUTDIR"
   
 # NOTE: no --pseudo_aligner salmon here (STAR+Salmon already happens with the default --aligner star_salmon)
-
 
 
 echo "[Done] Pipeline complete. Output in $OUTDIR"
