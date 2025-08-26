@@ -41,7 +41,7 @@ done
 # ===== Step 3: Run nf-core/rnaseq pipeline with conda profile =====
 echo "[Step 3] Running nf-core/rnaseq with --profile conda"
 nextflow run nf-core/rnaseq \
-    -profile conda \
+    -profile test \
     --input samples.csv \
     --outdir "$OUTDIR" \
     --genome "$GENOME" \
