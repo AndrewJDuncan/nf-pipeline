@@ -18,7 +18,7 @@ GENOME="GRCh37"
 mkdir -p "$SCRUBBY_DIR"
 mkdir -p "$OUTDIR"
 
-echo "Pipeline initialising"
+echo "Pipeline initialising. Go do your lit review, this'll take a while."
 
 
 # ===== Step 2: Create samplesheet =====
@@ -50,3 +50,8 @@ nextflow run nf-core/rnaseq \
     --skip_deseq2_qc
 
 echo "[Done] Pipeline complete. Output in $OUTDIR"
+
+# ===== clear work directory (it's huge) =====
+echo "Tidying up work directory 🚮"
+nextflow clean -f
+echo "All done, now get back out there and have some good clean fun."
