@@ -13,7 +13,7 @@ STRANDEDNESS="forward"   # options: forward | reverse | unstranded
 mkdir -p "$SCRUBBY_DIR"
 mkdir -p "$OUTDIR"
 
-echo "Pipeline initialising"
+echo "Pipeline initialising. Don't hold your breath. In fact, you probably could write a small novel and this'll still be going."
 
 # ===== Step 2: Create samplesheet =====
 echo "[Step 2] Creating nf-core/rnaseq samplesheet"
@@ -63,3 +63,8 @@ nextflow run nf-core/rnaseq \
     -with-dag "$OUTDIR/pipeline_flowchart.dot"
 
 echo "[Done] Pipeline complete. Output in $OUTDIR"
+
+# ===== clear work directory (it's huge) =====
+echo "Tidying up work directory 🚮"
+nextflow clean -f
+echo "All done, now get back out there and have some good clean fun."
