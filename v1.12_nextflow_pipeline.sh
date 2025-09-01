@@ -9,7 +9,7 @@ set -euo pipefail
 IN_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/classif_cases"
 REFERENCE_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/references"
 SCRUBBY_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/classif_cases/scrubby_clean"
-OUTDIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/classif_cases/nextflow_output"
+OUTDIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/classif_cases/standard_nextflow_output"
 REFERENCE_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/references"
 THREADS=16
 SCRUBBY_INDEX="${REFERENCE_DIR}/controls.fasta"
