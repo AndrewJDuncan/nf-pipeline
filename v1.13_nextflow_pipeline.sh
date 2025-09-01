@@ -2,10 +2,10 @@
 set -euo pipefail
 
 # ===== Config =====
-IN_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/validation_plate"
+IN_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/classif_cases"
 REFERENCE_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/references"
-SCRUBBY_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/validation_plate/scrubby_clean"
-OUTDIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/validation_plate/nextflow_output"
+SCRUBBY_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/classif_cases/scrubby_clean"
+OUTDIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/classif_cases/relaxed_output"
 SCRUBBY_INDEX="${REFERENCE_DIR}/controls.fasta"
 GENOME="GRCh37"
 STRANDEDNESS="forward"   # options: forward | reverse | unstranded
@@ -67,4 +67,4 @@ echo "[Done] Pipeline complete. Output in $OUTDIR"
 # ===== clear work directory (it's huge) =====
 echo "Tidying up work directory 🚮"
 nextflow clean -f
-echo "All done, now get back out there and have some good clean fun."
+echo "You're all clear kid, now let's blow this thing and go home."
