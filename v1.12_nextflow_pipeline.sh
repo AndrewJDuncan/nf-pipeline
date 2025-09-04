@@ -6,8 +6,8 @@
 set -euo pipefail
 
 # ===== Config =====
-source "~/miniforge3/etc/profile.d/mamba.sh"     # adjust path to your install
-mamba activate nextflow25
+source "~/miniforge3/etc/profile.d/conda.sh"     # adjust path to your install
+conda activate nextflow25
 
 IN_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/classif_cases"
 REFERENCE_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/references"
