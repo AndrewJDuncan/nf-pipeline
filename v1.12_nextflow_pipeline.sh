@@ -77,6 +77,6 @@ nextflow run nf-core/rnaseq \
 echo "[Done] Pipeline complete. Output in $OUTDIR"
 
 # ===== clear work directory (it's huge) =====
-echo "Tidying up work directory 🚮"
-nextflow clean -f -q || true
-echo "All done, now get back out there and have some good clean fun."
+#echo "Tidying up work directory 🚮"
+#nextflow clean -f -q || true
+#echo "All done, now get back out there and have some good clean fun."
