@@ -18,20 +18,8 @@ GENOME="GRCh37"
 mkdir -p "$SCRUBBY_DIR" "$OUTDIR"
 cd "$PROJECT_DIR"
 
-# Robust conda activation for non-interactive shells
-if [[ -f "$HOME/miniforge3/etc/profile.d/conda.sh" ]]; then
-  # miniforge
-  # shellcheck disable=SC1091
-  source "$HOME/miniforge3/etc/profile.d/conda.sh"
-elif [[ -f "$HOME/mambaforge/etc/profile.d/conda.sh" ]]; then
-  # mambaforge
-  # shellcheck disable=SC1091
-  source "$HOME/mambaforge/etc/profile.d/conda.sh"
-else
-  echo "[FATAL] Could not find conda.sh under \$HOME/{mini,mamba}forge." >&2
-  exit 1
-fi
-
+# Conda activation for non-interactive shells - e.g. nohup
+source "$HOME/miniforge3/etc/profile.d/conda.sh"
 conda activate nextflow25
 
 # Basic sanity checks (helpful when nohup-detached)
@@ -77,6 +65,6 @@ nextflow run nf-core/rnaseq \
 echo "[Done] Pipeline complete. Output in $OUTDIR"
 
 # ===== clear work directory (it's huge) =====
-#echo "Tidying up work directory 🚮"
-#nextflow clean -f -q || true
-#echo "All done, now get back out there and have some good clean fun."
+echo "Tidying up work directory 🚮"
+nextflow clean -f -q || true
+echo "All done, now get back out there and have some good clean fun."
