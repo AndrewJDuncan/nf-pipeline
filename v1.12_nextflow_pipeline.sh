@@ -1,6 +1,3 @@
-# Uses initial scrubby-based ERCC/EDCC cleaning, inside mamba environment, then turns this environment off and runs nf-core nextflow pipeline. 
-  ## Skips deseq2_qc - bug
-
 #!/usr/bin/env bash
 set -euo pipefail
 shopt -s nullglob
