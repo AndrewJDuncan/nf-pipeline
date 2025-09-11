@@ -3,7 +3,7 @@ set -euo pipefail
 shopt -s nullglob
 
 # ===== Config =====
-PROJECT_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/validation_plate"
+PROJECT_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/mgp_test_cases"
 IN_DIR="$PROJECT_DIR"                                # keep for readability
 REFERENCE_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/references"
 SCRUBBY_DIR="$PROJECT_DIR/scrubby_clean"
