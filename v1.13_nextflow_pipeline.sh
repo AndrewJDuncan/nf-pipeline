@@ -2,10 +2,10 @@
 set -euo pipefail
 
 # ===== Config =====
-IN_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/classif_cases"
+IN_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/validation_plate"
 REFERENCE_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/references"
-SCRUBBY_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/classif_cases/scrubby_clean"
-OUTDIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/classif_cases/relaxed_output"
+SCRUBBY_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/validation_plate/scrubby_clean"
+OUTDIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/validation_plate/relaxed_output"
 SCRUBBY_INDEX="${REFERENCE_DIR}/controls.fasta"
 GENOME="GRCh37"
 STRANDEDNESS="forward"   # options: forward | reverse | unstranded
