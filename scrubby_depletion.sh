@@ -3,10 +3,10 @@ set -euo pipefail
 
 # ===== Configuration =====
 REFERENCE_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/references"
-THREADS=16
+THREADS=32
 SCRUBBY_INDEX="${REFERENCE_DIR}/controls.fasta"
-INDIR="~/projects/nf-pipeline/validation_plate"
-GENOME="GRCh37"
+INDIR="~/projects/nf-pipeline/FASTQs_for_processing/valp20250619"
+GENOME="GRCh38"
 SCRUBBY_DIR="scrubby_clean"
 
 # ===== ERCC/EDCC depletion =====
