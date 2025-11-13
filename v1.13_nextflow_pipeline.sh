@@ -1,6 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
+#### RELAXED NF SETTINGS ####
+
 # ===== Config =====
 IN_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/mgp_test_cases"
 REFERENCE_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/references"
