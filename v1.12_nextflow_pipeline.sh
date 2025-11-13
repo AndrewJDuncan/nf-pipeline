@@ -3,13 +3,13 @@ set -euo pipefail
 shopt -s nullglob
 
 # ===== Config =====
-PROJECT_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/mgp_test_cases"
+PROJECT_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/FASTQs_for_processing/valp20250619"
 IN_DIR="$PROJECT_DIR"                                # keep for readability
 REFERENCE_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/references"
 SCRUBBY_DIR="$PROJECT_DIR/scrubby_clean"
 OUTDIR="$PROJECT_DIR/standard_nextflow_output"
 THREADS=16
-GENOME="GRCh37"
+GENOME="GRCh38"
 
 # Ensure we’re in a predictable working directory
 mkdir -p "$SCRUBBY_DIR" "$OUTDIR"
