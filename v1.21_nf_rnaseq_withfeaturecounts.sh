@@ -8,7 +8,7 @@ IN_DIR="$PROJECT_DIR"                                # keep for readability
 REFERENCE_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/references"
 SCRUBBY_DIR="$PROJECT_DIR/scrubby_clean"
 OUTDIR="$PROJECT_DIR/standard_nextflow_output"
-THREADS=16
+THREADS=32
 GENOME="GRCh38"
 
 # Ensure we’re in a predictable working directory
