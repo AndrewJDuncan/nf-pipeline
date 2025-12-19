@@ -51,14 +51,13 @@ fi
 echo "[Step 3] Running nf-core/rnaseq with --profile conda"
 nextflow run nf-core/rnaseq \
   -profile conda \
-  --input samples.csv \
-  --outdir standard_nextflow_output_fc \
+  --input "/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/FASTQs_for_processing/valp20250619/standard_nextflow_output/samples.csv" \
+  --outdir "/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/FASTQs_for_processing/valp20250619/standard_nextflow_output_rerun" \
   --genome GRCh38 \
+  --aligner star_rsem \
   --with_umi \
   --umitools_umi_separator ":" \
   --skip_umi_extract \
-  --skip_salmon \
-  --featurecounts \
   --skip_deseq2_qc
 
 echo "[Done] Pipeline complete. Output in $OUTDIR"
