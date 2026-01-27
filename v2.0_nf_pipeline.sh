@@ -23,7 +23,7 @@ OUTDIR="$PROJECT_DIR/standard_nextflow_output_star_rsem"
 GENOME="GRCh38"
 
 # Resources / Nextflow
-THREADS=16
+THREADS=32
 
 # Trial subset controls
 N_SAMPLES=6        # set to 0 to include all discovered samples
