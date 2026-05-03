@@ -5,7 +5,7 @@ set -euo pipefail
 REFERENCE_DIR="/raid/VIDRL-USERS/HOME/aduncan/projects/nf-pipeline/references"
 THREADS=32
 SCRUBBY_INDEX="${REFERENCE_DIR}/controls.fasta"
-INDIR="~/projects/nf-pipeline/FASTQs_for_processing/valp20250619"
+INDIR="~/projects/nf-pipeline/FASTQs_for_processing/ground_truth/naive_vs_Th1/Analysis/1/Data/fastq"
 GENOME="GRCh38"
 SCRUBBY_DIR="scrubby_clean"
 
