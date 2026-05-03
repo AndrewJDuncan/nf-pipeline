@@ -14,7 +14,7 @@ echo "[Scrubby] Depleting synthetic controls using Scrubby"
 mkdir -p "$SCRUBBY_DIR"
 
 
-for r1 in *RNA__S_*R1_001.fastq.gz; do
+for r1 in *RNA__PS_*R1_001.fastq.gz; do
     sample=$(basename "$r1" _R1_001.fastq.gz)
     r2="${sample}_R2_001.fastq.gz"
 
