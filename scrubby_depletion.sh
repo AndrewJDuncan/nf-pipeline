@@ -26,13 +26,12 @@ for r1 in *RNA__PS_*R1_001.fastq.gz; do
     echo "  Processing $sample"
 
     scrubby reads \
-        -i "$r1" -i "$r2" \
-        --index "$SCRUBBY_INDEX" \
-        --aligner bowtie2   # or bwa, depending on what scrubby supports
-        --threads "$THREADS" \
-        -o "${SCRUBBY_DIR}/${sample}__clean__R1.fq.gz" \
-        -o "${SCRUBBY_DIR}/${sample}__clean__R2.fq.gz" \
-        --json "${SCRUBBY_DIR}/${sample}.clean.json"
+    -i "$r1" "$r2" \
+    --index "$SCRUBBY_INDEX" \
+    --threads "$THREADS" \
+    -o "${SCRUBBY_DIR}/${sample}__clean__R1.fq.gz" "${SCRUBBY_DIR}/${sample}__clean__R2.fq.gz" \
+    --json "${SCRUBBY_DIR}/${sample}.clean.json"
+
 done
 
 echo "Depletion of ERCC controls complete"
